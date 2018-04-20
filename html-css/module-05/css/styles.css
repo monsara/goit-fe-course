@@ -152,6 +152,7 @@ figure {
   color: var(--white_color);
   background-color: rgba(78, 198, 171, 0.65);
   transition: 0.5s;
+  cursor: pointer;
 }
 
 .slider__control:hover,
