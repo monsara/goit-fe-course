@@ -1,0 +1,335 @@
+:root {
+  --accent-color: rgb(254, 209, 54);
+  --grey-color: rgb(119, 119, 119);
+  --dark-grey-color: rgb(34, 34, 34);
+  --main-font: 'Roboto Slab', 'Verdana', 'Arial', sans-serif;
+};
+
+/* montserrat-regular - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'),
+       url('../fonts/montserrat/montserrat-v12-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/montserrat/montserrat-v12-latin-regular.woff') format('woff'); /* Modern Browsers */
+
+}
+/* montserrat-700 - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Montserrat Bold'), local('Montserrat-Bold'),
+       url('../fonts/montserrat/montserrat-v12-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/montserrat/montserrat-v12-latin-700.woff') format('woff'); /* Modern Browsers */
+}
+
+/* noto-sans-regular - latin */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Noto Sans'), local('NotoSans'),
+       url('../fonts/noto-sans/noto-sans-v7-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/noto-sans/noto-sans-v7-latin-regular.woff') format('woff'); /* Modern Browsers */
+}
+/* noto-sans-italic - latin */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Noto Sans Italic'), local('NotoSans-Italic'),
+       url('../fonts/noto-sans/noto-sans-v7-latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/noto-sans/noto-sans-v7-latin-italic.woff') format('woff'); /* Modern Browsers */
+}
+
+/* roboto-slab-regular - latin */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Slab Regular'), local('RobotoSlab-Regular'),
+       url('../fonts/roboto-slab/roboto-slab-v7-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/roboto-slab/roboto-slab-v7-latin-regular.woff') format('woff'); /* Modern Browsers */
+}
+
+/* wisdom-script - latin */
+@font-face {
+  font-family: 'Visdom Script';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Visdom Script'), local('Visdom Script'),
+       url('../fonts/wisdom-script/wisdom-script.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/wisdom-script/wisdom-script.woff') format('woff'); /* Modern Browsers */
+}
+
+html { box-sizing: border-box; }
+
+*,
+*::before,
+*::after { box-sizing: inherit; }
+
+/* * { outline: 1px solid grey; } */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container { width: 940px; }
+
+.link { text-decoration: none }
+
+.title {
+  font-size: 40px;
+  line-height: 1.875;
+  font-family: "Montserrat", "Verdana", "Arial", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.title_theme_light { color: var(--dark-grey-color); }
+
+.title_theme_dark { color: rgb(255, 255, 255); }
+
+.page__title { margin: 0; }
+
+.text {
+  display: block;
+  font-size: 19px;
+  line-height: 1.2;
+  font-family: "Palatino Linotype", "Palatino", serif;
+  font-style: italic;
+  color: var(--grey-color);
+  text-align: center;
+}
+
+.img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Page header */
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.page__header {
+  margin-top: 45px;
+  margin-bottom: 100px;
+}
+
+.logo {
+  font-family: 'Visdom Script', 'Comic Sans MS', cursive;
+  font-size: 15px;
+  line-height: 1.577;
+  color: var(--accent-color);
+}
+
+.logo__slogan { margin: 0; }
+
+/* Page navigatione */
+.menu {
+  padding-top: 12px;
+  flex-basis: 485px;
+  font-size: 14px;
+  line-height: 2.929;
+  font-family: "Montserrat", "Verdana", "Arial", sans-serif;
+  color: var(--grey-color);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.menu__inner {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.menu__link {
+  color: var(--dark-grey-color); 
+  transition: 0.2s;
+}
+
+.menu-link_hovered:hover,
+.menu-link_focused:focus { color: var(--accent-color); }
+
+.menu__link_pressed:active { color: rgb(226, 186, 48); }
+
+/* Services section */
+.features__text { margin-bottom: 100px; }
+
+.categories {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  text-align: center;
+}
+
+.features__list {
+  margin: 0;
+  margin-bottom: 120px;
+  padding: 0;
+}
+
+.category { flex-basis: 290px; }
+
+.category__title {
+  margin: 0;
+  font-size: 18px;
+  line-height: 3.2;
+  font-family: "Montserrat", "Verdana", "Arial", sans-serif;
+  font-weight: bold;
+  color: var(--dark-grey-color);
+}
+
+.category__title::before {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: '';
+  height: 78px;
+  margin-bottom: 3px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.cart-icon::before { background-image: url(../img/icons/cart.png); }
+
+.laptop-icon::before { background-image: url(../img/icons/laptop.png); }
+
+.lock-icon::before { background-image: url(../img/icons/lock.png); }
+
+.category__text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: "Roboto Slab", "Verdana", "Arial", serif;
+  color: var(--grey-color);
+}
+
+/* Page footer */
+
+.footer { 
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  background-image: url(../img/map.png);
+  background-repeat: no-repeat;
+  background-position: right 165px;
+}
+
+.footer_theme_dark { background-color: var(--dark-grey-color); }
+
+.footer__title { margin-top: 120px; }
+
+.footer-text { margin-bottom: 90px; }
+
+.form { 
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 940px; 
+  margin: auto; 
+}
+
+.footer__form { margin-bottom: 100px; }
+
+.contacts-form__col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.input__box {
+  width: 455px;
+  height: 50px;
+  border: 1px solid var(--grey-color);
+  border-radius: 5px;
+}
+
+.input__control {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 14px;
+  line-height: 1.2;
+  font-family: "Montserrat", "Verdana", "Arial", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: rgb(187, 187, 187);
+  outline: transparent;
+}
+
+.input__control_valid:required:valid { border: 3px solid #1C9963; }
+
+.input__control_invalid:required:invalid { border: 3px solid #FF0000; }
+
+.form__textarea {
+  display: flex;
+  align-content: center;
+}
+
+.textarea__box {
+  width: 455px;
+  height: 210px;
+  padding-top: 17px;
+  border: 1px solid var(--grey-color);
+  border-radius: 5px;
+}
+
+.submit {
+  width: 240px;
+  height: 66px;
+  font-size: 18px;
+  line-height: 1.2;
+  font-family: "Montserrat", "Verdana", "Arial", sans-serif;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  text-align: center;
+  background-color: var(--accent-color);
+  border-radius: 3px;
+  border: none;
+  transition: 0.2s;
+  outline: none;
+}
+
+.submit_hovered:hover {
+  background-color: rgb(226, 186, 48);
+}
+
+.submit_pressed:active {
+  background-color: #ac8e25;
+}
+
+.form__btn {
+  margin: auto;
+  margin-top: 30px;
+}
+
+/* visually-hidden helper */
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
