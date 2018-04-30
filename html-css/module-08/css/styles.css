@@ -139,6 +139,7 @@ html { box-sizing: border-box; }
   vertical-align: middle;
   border-radius: 20px;
   border: 1px solid transparent;
+  transition: 0.2s;
 }
 
 .button__theme_light { color: var(--white-color); }
