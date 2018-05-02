@@ -1,0 +1,82 @@
+@media (min-width: 321px) and (max-width: 768px) {
+  .page-header { background-image: url("../img/background_tablet.png"); }
+}
+
+@media (min-width: 768px) {
+  .cards-wrap { min-width: 571px; margin: auto; }
+
+  .page-header {
+    background-image: url("../img/background.png");
+    height: 700px;
+    margin-bottom: 68px;
+  }
+
+  .top-line { 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: auto;
+    padding-top: 38px;
+  }
+
+  .company-name { padding-top: 8px; }
+
+  .page-header__company-name { order: 1; }
+
+  .page-header__page-nav { 
+    margin-bottom: 63px;
+    order: 2;
+  }
+
+  .page-header__info { margin-bottom: 37px; }
+
+  .info-block__title {
+    margin-bottom: 23px;
+    font-size: 52px;
+    line-height: 1.2;
+  }
+
+  .info-block__subtitle { 
+    margin-bottom: 35px;
+    font-size: 24px; 
+  }
+
+  .button__theme_accent.button_size_md {
+    width: 225px;
+    height: 40px;
+  }
+
+  .button__theme_accent.button__view_pseudo.button_size_sm {
+    width: 192px;
+    height: 40px;
+  }
+
+  .partners__title { margin-bottom: 32px; }
+
+  .cards__item { margin-bottom: 56px; }
+
+  .cards__item:nth-child(n + 3) { margin-bottom: 100px; }
+
+  .card__img { margin-bottom: 20px; }
+
+  .card__img-holder::before { bottom: 12px; }
+
+}
+
+@media (min-width: 1024px) {
+  .cards__item {
+    margin-right: 4px;
+    margin-left: 4px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .cards-wrap { width: auto; margin: auto; }
+
+  .cards__item {
+    margin-right: 6px;
+    margin-bottom: 30px;
+    margin-left: 6px;
+    margin-bottom: 40px;
+  }
+}
