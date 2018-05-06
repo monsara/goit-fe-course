@@ -112,7 +112,7 @@ html {
 }
 
 .menu__link_hovered:hover,
-.menu__link_active:active {
+.menu__link_pressed:active {
   color: rgb(252, 227, 138);
   text-decoration: none;
 }
@@ -143,8 +143,17 @@ html {
 .glass-icon {
   display: inline-block;
   width: 18px;
-  height: 15px;
+  height: 18px;
   fill: var(--white-color);
+}
+
+.icon::after {
+  display: none;
+}
+
+.icon_hovered:hover,
+.icon_pressed:active {
+  fill: rgb(252, 227, 138);
 }
 
 .header-content__title {
