@@ -477,8 +477,8 @@ html {
   transition: all 0.2s linear;
 }
 
-.menu__link_hovered:hover,
-.menu__link_pressed:active {
+.menu__link:hover,
+.menu__link:active {
   color: #fce38a;
   text-decoration: none;
 }

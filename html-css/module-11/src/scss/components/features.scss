@@ -11,18 +11,17 @@
 .features-category {
   width: 380px;
   height: 80px;
-}
-
-.features-category::before {
-  display: block;
-  float: left;
-  flex-wrap: wrap;
-  content: '';
-  width: 80px;
-  height: 80px;
-  background-repeat: no-repeat;
-  background-position: top center;
-  fill: rgb(165, 229, 218);
+  &::before {
+    display: block;
+    float: left;
+    flex-wrap: wrap;
+    content: '';
+    width: 80px;
+    height: 80px;
+    background-repeat: no-repeat;
+    background-position: top center;
+    fill: rgb(165, 229, 218);
+  }
 }
 
 .alarm-icon::before { background-image: url(../img/svg/services-icons/alarm-icon.svg); }

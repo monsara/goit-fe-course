@@ -24,24 +24,22 @@
   text-transform: uppercase;
   text-align: center;
   transition: all 0.2s linear;
-}
-
-.menu__link_hovered:hover,
-.menu__link_pressed:active {
-  color: rgb(252, 227, 138);
-  text-decoration: none;
-}
-
-.menu__link::after {
-  display: block;
-  content: "";
-  width: 100%;
-  height: 3px;
-  margin-top: 12px;
-  background-color: rgb(252, 227, 138);
-  opacity: 0;
-  transition: opacity 0.2s linear;
-  cursor: auto;
+  &:hover,
+  &:active {
+    color: rgb(252, 227, 138);
+    text-decoration: none;
+  }
+  &::after {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 3px;
+    margin-top: 12px;
+    background-color: rgb(252, 227, 138);
+    opacity: 0;
+    transition: opacity 0.2s linear;
+    cursor: auto;
+  }
 }
 
 .menu__link_hovered:hover::after{ opacity: 1; }
