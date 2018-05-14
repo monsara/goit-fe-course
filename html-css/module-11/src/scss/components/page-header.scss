@@ -1,0 +1,13 @@
+.page-header {
+  height: 100vh;
+  min-width: 320px;
+  background-image: linear-gradient( 180deg, rgba(243, 129, 129, .9) 0%, rgba(252, 227, 138, .9) 100%), url(../img/header-bg-img-min.jpg);
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size: cover;
+  margin-bottom: 46px;
+}
+
+@media (min-resolution: 192dpi) {
+  .box { background: url('../img/retina/header-bg-img@2x-min.jpg') no-repeat; }
+} 

@@ -1,0 +1,10 @@
+.site-logo { text-decoration: none; }
+
+.site-logo__slogan {
+  margin: 0; 
+  display: inline-block;
+  @include font-settings(30px, 1.2)
+  font-family: "Montserrat", "Arial", sans-serif;
+  font-weight: bold;
+  color: $white-color;
+}

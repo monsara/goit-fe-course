@@ -1,0 +1,29 @@
+.section__title { 
+  margin: 0;
+  @include font-settings(30px, 1.2)
+  font-family: "Montserrat", "Arial", sans-serif;
+  font-weight: bold;
+  color: $dark-grey-color;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.section__title::after {
+  display: block;
+  content: '';
+  width: 60px;
+  height: 3px;
+  margin: 0 auto;
+  margin-top: 35px;
+  text-align: center;
+  background-color: $pink-color;
+}
+
+.section__subtitle {
+  display: block;
+  margin-bottom: 15px;
+  @include font-settings(24px, 1.2)
+  font-family: "Kaushan Script", cursive;
+  font-weight: 400;
+  text-transform: none;
+}

@@ -1,0 +1,61 @@
+.features__title { margin-bottom: 66px; }
+
+.features-categorys {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.features-category {
+  width: 380px;
+  height: 80px;
+}
+
+.features-category::before {
+  display: block;
+  float: left;
+  flex-wrap: wrap;
+  content: '';
+  width: 80px;
+  height: 80px;
+  background-repeat: no-repeat;
+  background-position: top center;
+  fill: rgb(165, 229, 218);
+}
+
+.alarm-icon::before { background-image: url(../img/svg/services-icons/alarm-icon.svg); }
+
+.line-graph-icon::before { background-image: url(../img/svg/services-icons/line-graph-icon.svg); }
+
+.camputer-icon::before { background-image: url(../img/svg/services-icons/computer-icon.svg); }
+
+.book-icon::before { background-image: url(../img/svg/services-icons/book-icon.svg); }
+
+.home-icon::before { background-image: url(../img/svg/services-icons/home-icon.svg); }
+
+.frame-icon::before { background-image: url(../img/svg/services-icons/frame-icon.svg); }
+
+.features__item {
+  margin-bottom: 95px;
+  width: 100%;
+  height: 70px;
+}
+
+.features-category__name {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.2;
+  font-family: "Montserrat", "Arial", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $dark-grey-color;
+}
+
+.features-category-desc {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}

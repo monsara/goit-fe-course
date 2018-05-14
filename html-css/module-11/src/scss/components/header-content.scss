@@ -1,0 +1,20 @@
+.header-content__title {
+  font-size: 150px;
+  line-height: 140px;
+  font-family: "Montserrat", "Arial", sans-serif;
+  font-weight: bold;
+  color: $white-color;
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 70px;
+}
+
+.header-content__subtitle {
+  display: block;
+  @include font-settings(72px, 1.2)
+  font-family: "Kaushan Script", cursive;
+  font-weight: 400;
+  color: $white-color;
+  margin-bottom: 31px;
+  text-transform: none;
+}

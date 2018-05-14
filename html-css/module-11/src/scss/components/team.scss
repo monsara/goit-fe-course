@@ -1,0 +1,131 @@
+.main__team  { margin-bottom: 60px; }
+
+.team__title { margin-bottom: 50px; }
+
+.team__about {
+  margin: 0 auto;
+  margin-bottom: 90px;
+  @include font-settings(15px, 1.6)
+  text-align: center;
+}
+
+.team__card { margin: 0; }
+
+.employee:hover .socials {
+  visibility: visible;
+  box-shadow: 10px 10px $accent-color;
+  transform: translate(-10px, -10px);
+  box-shadow: 10px 10px $accent-color;
+}
+
+.employee:hover .team__img { transform: translate(-10px, -10px); } 
+
+.team__item { position: relative; }
+
+.employee-card {
+  padding: 0;
+  text-align: center;
+}
+
+.team__desc { margin: 0; }
+
+.team__img {
+  margin-bottom: 30px;
+  transition: .2s linear;
+}
+
+.employee-card__desc-name { padding: 0; }
+
+.team__name {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.employee-card__desc-name {
+  @include font-settings(14px, 1.2)
+  font-family: "Montserrat", "Arial", sans-serif;
+  color: $dark-grey-color;
+  text-transform: uppercase;
+}
+
+.team__occupation { margin: 0; }
+
+.employee-card__desc-occupation {
+  padding: 0;
+  @include font-settings(15px, 1.6)
+  font-weight: 300;
+  font-style: italic;
+}
+
+.team__socials {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+  height: 433px;
+  background-image: linear-gradient( 180deg, rgba(243, 129, 129, .9) 0%, rgba(252, 227, 138, .9) 100%);
+  align-items: center;
+  list-style-type: none;
+  visibility: hidden;
+  opacity: 0.9;
+}
+
+.team__btn { margin-right: 4px; }
+
+.socials__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(252, 227, 138);
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: background-color 0.2s linear;
+}
+
+.socials__icon_hovered:hover,
+.socials__icon_pressed:active  {
+  background-color: $pink-color;
+}
+
+.facebook-icon {
+  width: 13px;
+  height: 26px;
+  fill: $pink-color;
+}
+
+.socials__icon_hovered:hover .facebook-icon {
+  fill: $white-color;
+}
+
+.twitter-icon{
+  width: 26px;
+  height: 22px;
+  fill: $pink-color;
+}
+
+.socials__icon_hovered:hover .twitter-icon { fill: $white-color; }
+
+.pinterest-icon {
+  width: 21px;
+  height: 26px;
+  fill: $pink-color;
+}
+
+.socials__icon_hovered:hover .pinterest-icon { fill: $white-color; }
+
+.instagram-icon {
+  width: 26px;
+  height: 26px;
+  fill: $pink-color;
+}
+
+.socials__icon_hovered:hover .instagram-icon { fill: $white-color; }
