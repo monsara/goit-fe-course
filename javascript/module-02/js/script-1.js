@@ -26,20 +26,20 @@ const numbers = [];
 let total = 0;
 
 do {
-  userInput = prompt('Введите число', '');
+  userInput = prompt(`Введите ${numbers.length + 1}-e число`, '');
 
-  if (userInput === null) {
-    break;
-  } else if (userInput === '' || isNaN(userInput)) {
+  if (userInput == Number(userInput) && userInput.trim()) {
+    numbers.push(Number(userInput))
+  } else if (userInput !== null)
     alert('Было введено не число, попробуйте еще раз');
-  }
 
-  numbers.push(Number(userInput));
 
-  for (const value of numbers) {
-    total = value + value;
-  }
+} while (userInput !== null);
 
-} while (true);
+for (const value of numbers) {
+  total = total + value;
+}
 
-alert(`Общая сумма чисел равна ${total}`);
+alert(`Общая сумма ${numbers.length} чисел равна ${total}`);
+
+console.log(numbers);
