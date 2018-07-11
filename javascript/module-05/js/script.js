@@ -194,3 +194,37 @@ const getUsersByFriend = (arr, name) => {
 
 console.log(getUsersByFriend(users, 'Briana Decker')); // [ 'Sharlene Bush', 'Sheree Anthony' ]
 console.log(getUsersByFriend(users, 'Goldie Gentry')); // [ 'Elma Head', 'Sheree Anthony' ]
+
+
+/*
+  ЗАДАНИЕ ПОВЫШЕННОЙ СЛОЖНОСТИ - ВЫПОЛНЯТЬ ПО ЖЕЛАНИЮ
+*/
+                                         
+/**
+* Получить массив всех скиллов всех пользователей (поле skills), при этом не должно быть
+* повторяющихся скиллов и они должны быть отсортированы в алфавитном порядке
+*/
+const getAllSkills = arr => {
+  const allSkills = arr
+    .reduce((acc, user) => acc.concat(user.skills), [])
+    .reduce((acc, skill) => !acc.includes(skill) ? acc.concat(skill) : acc, [])
+    .sort();
+  return allSkills;
+};
+
+console.log(getAllSkills(users));
+// [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]
+
+                             
+/**
+* Массив имен (поле name) людей, отсортированных в зависимости от количества их друзей (поле friends)
+*/
+const getUserNamesSortedByFriendsCount = arr => {
+  const userNamesSortedByFriendsCount = arr
+    .sort((a, b) => a.friends.length - b.friends.length)
+    .map (user => user.name);
+  return userNamesSortedByFriendsCount;
+};
+
+console.log(getUserNamesSortedByFriendsCount(users)); 
+// [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
