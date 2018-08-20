@@ -14,7 +14,7 @@
 
 'use strict';
 
-const createPost = ({ img, title, text, link }) => {
+const createPostCard = ({ img, title, text, link }) => {
   const post = document.createElement('div');
   post.classList.add('post');
 
@@ -41,11 +41,13 @@ const createPost = ({ img, title, text, link }) => {
   return post;
 }
 
-const createPostCard = posts => {
-  const elements = posts.map(post => createPost(post));
+const createCards = posts => {
+  const elements = posts.map(post => createPostCard(post));
 
   return elements;
 };
 
-const element = document.querySelector('.card-list');
-element.append(...createPostCard(posts));
+const postCards = createCards(posts);
+
+const cardList = document.querySelector('.card-list');
+cardList.append(...postCards);
