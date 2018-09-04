@@ -6,87 +6,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="./css/style.css">
-  <title>AJAX. JSON. Fetch API. Cookies. Web Storage</title>
+  <title>Templating. Regular Expressions</title>
 </head>
 
 <body>
-  <div class="tabs">
-    <ul class="tabs__nav js-tabs__nav">
-      <li>
-        <a href="#pane-1" class="tabs__link tabs__link--active">All users</a>
-      </li>
-      <li>
-        <a href="#pane-2" class="tabs__link">Search user by id</a>
-      </li>
-      <li>
-        <a href="#pane-3" class="tabs__link">Add new user</a>
-      </li>
-      <li>
-        <a href="#pane-4" class="tabs__link">Remove user</a>
-      </li>
-      <li>
-        <a href="#pane-5" class="tabs__link">Update user</a>
-      </li>
-    </ul>
-  
-    <ul class="tabs__content js-tabs__content">
-      <li class="tabs__pane tabs__pane--active" id="pane-1">
-        <div class="container">
-          <form class="search-form">
-            <button class="btn js-get" type="submit">get</button>
-          </form>
-          <div class="result">
-            <div class="title-table">
-              <h3 class="title">id</h3>
-              <h3 class="title">name</h3>
-              <h3 class="title">age</h3>
-            </div>
-            <table class="table"></table>
-          </div>
-        </div>
-      </li>
-      <li class="tabs__pane" id="pane-2">
-        <div class="container-search">
-          <form class="search-form">
-            <input class="js-search" type="text" name="country" placeholder="Enter user by id">
-            <button class="btn" type="submit" id="js-submit">search</button>
-          </form>
-          <p class="showUserInfo" id="showUserInfo"></p>
-        </div>
-      </li>
-      <li class="tabs__pane" id="pane-3">
-        <div class="container-search">
-          <form class="search-form">
-            <input class="js-name" type="text" name="country" placeholder="Enter name">
-            <input class="js-age" type="text" name="country" placeholder="Enter age">
-            <button class="submit-btn" type="submit" id="js-submitNewUser">submit</button>
-          </form>
-          <p class="showNewUserInfo" id="newUserInfotmation"></p>
-        </div>
-      </li>
-      <li class="tabs__pane" id="pane-4">
-        <div class="container-search">
-          <form class="search-form">
-            <input class="js-remove" type="text" name="country" placeholder="Enter user by id">
-            <button class="btn" type="submit" id="js-remove">remove</button>
-          </form>
-          <p class="showNewUserInfo" id="deleted-info"></p>
-        </div>
-      </li>
-      <li class="tabs__pane" id="pane-5">
-        <div class="container-search">
-          <form class="search-form">
-            <input class="js-id" id="js-resubmit-id" type="text" name="country" placeholder="Enter id">
-            <input class="js-name" id="js-resubmit-name" type="text" name="country" placeholder="Enter name">
-            <input class="js-age" id="js-resubmit-age" type="text" name="country" placeholder="Enter age">
-            <button class="submit-btn" type="submit" id="js-resubmit">Resubmit</button>
-          </form>
-          <p class="showNewUserInfo" id="resubmitUserInfo"></p>
-        </div>
-      </li>
-    </ul>
-  </div>
+  <form class="form js-form">
+    <section>
+      <h2>Screen size</h2>
+      <ul>
+        <li><label><input type="checkbox" name="size" value="13"> 13"</label></li>
+        <li><label><input type="checkbox" name="size" value="15"> 15"</label></li>
+        <li><label><input type="checkbox" name="size" value="17"> 17"</label></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Color</h2>
+      <ul>
+        <li><label><input type="checkbox" name="color" value="white"> white</label></li>
+        <li><label><input type="checkbox" name="color" value="gray"> gray</label></li>
+        <li><label><input type="checkbox" name="color" value="black"> black</label></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Release date</h2>
+      <ul>
+        <li><label><input type="checkbox" name="release_date" value="2015"> 2015</label></li>
+        <li><label><input type="checkbox" name="release_date" value="2016"> 2016</label></li>
+        <li><label><input type="checkbox" name="release_date" value="2017"> 2017</label></li>
+      </ul>
+    </section>
+    <button type="submit">Filter</button>
+    <button type="reset">Clear</button>
+  </form>
 
+  <div class="grid js-cards-list"></div>
+
+  <template id="goods-card-tmpl">
+    <div class="card">
+      <header>
+        <h2 class="name">{{name}}</h2>
+      </header>
+      <div class="content">
+        <img class="img" src="{{img}}" alt="{{name}}">
+        <p class="descr">{{descr}}</p>
+        <p class="color">{{color}}</p>
+      </div>
+      <footer class="footer">
+        <p class="price">Price: {{price}} грн.</p>
+        <p class="release_date">{{release_date}}</p>
+      </footer>
+    </div>
+  </template>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <script src="./js/laptops.js"></script>
   <script src="./js/index.js"></script>
 </body>
 

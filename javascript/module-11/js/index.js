@@ -1,199 +1,236 @@
 /*
-  Написать приложение для работы с REST сервисом, 
-  все функции делают запрос и возвращают Promise 
-  с которым потом можно работать. 
-  
-  Реализовать следующий функционал:
-  - функция getAllUsers() - должна вернуть текущий список всех пользователей в БД.
-  
-  - функция getUserById(id) - должна вернуть пользователя с переданным id.
-  
-  - функция addUser(name, age) - должна записывать в БД юзера с полями name и age.
-  
-  - функция removeUser(id) - должна удалять из БД юзера по указанному id.
-  
-  - функция updateUser(id, user) - должна обновлять данные пользователя по id. 
-    user это объект с новыми полями name и age.
-  Документацию по бэкенду и пример использования прочитайте 
-  в документации https://github.com/trostinsky/users-api#users-api.
-  Сделать минимальный графический интерфейс в виде панели с полями и кнопками. 
-  А так же панелью для вывода результатов операций с бэкендом.
+  Реализуйте форму фильтра товаров в каталоге и список отфильтрованных товаров.
+Используйте шаблонизацию для создания карточек товаров.
+
+Есть массив объектов(дальше в задании), каждый из которых описывает
+ноутбук с определенными характеристиками.
+
+Поля объекта по которым необходимо производить фильтрацию: size, color, release_date.
+Поля объекта для отображения в карточке: name, img, descr, color, price, release_date.
+
+Изначально есть форма с 3 - мя секциями, состоящими из заголовка и группы
+чекбоксов(разметка дальше в задании).После того как пользователь выбрал
+какие либо чекбоксы и нажал кнопку Filter, необходимо собрать значения чекбоксов по группам.
+
+🔔 Подсказка: составьте объект формата
+const filter = { size: [], color: [], release_date: [] }
+
+После чего выберите из массива только те объекты, которые подходят
+под выбраные пользователем критерии и отрендерите список карточек товаров.
+
+🔔 Каждый раз когда пользователь фильтрует товары, список карточек товаров очищается,
+  после чего в нем рендерятся новые карточки товаров, соответствующих текущим критериям фильтра.
+* /
+
+/*
+  HTML для формы
+  <form class="form js-form">
+    <section>
+      <h2>Screen size</h2>
+      <ul>
+        <li><label><input type="checkbox" name="size" value="13"> 13"</label></li>
+        <li><label><input type="checkbox" name="size" value="15"> 15"</label></li>
+        <li><label><input type="checkbox" name="size" value="17"> 17"</label></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Color</h2>
+      <ul>
+        <li><label><input type="checkbox" name="color" value="white"> white</label></li>
+        <li><label><input type="checkbox" name="color" value="gray"> gray</label></li>
+        <li><label><input type="checkbox" name="color" value="black"> black</label></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Release date</h2>
+      <ul>
+        <li><label><input type="checkbox" name="release_date" value="2015"> 2015</label></li>
+        <li><label><input type="checkbox" name="release_date" value="2016"> 2016</label></li>
+        <li><label><input type="checkbox" name="release_date" value="2017"> 2017</label></li>
+      </ul>
+    </section>
+    <button type="submit">Filter</button>
+    <button type="reset">Clear</button>
+  </form>
+*/
+
+/* 
+Массив объектов:
+const laptops = [
+  {
+    size: 13,
+    color: 'white',
+    price: 28000,
+    release_date: 2015,
+    name: 'Macbook Air White 13"',
+    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    descr:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+  },
+  {
+    size: 13,
+    color: 'gray',
+    price: 32000,
+    release_date: 2016,
+    name: 'Macbook Air Gray 13"',
+    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    descr:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+  },
+  {
+    size: 13,
+    color: 'black',
+    price: 35000,
+    release_date: 2017,
+    name: 'Macbook Air Black 13"',
+    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    descr:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+  },
+  {
+    size: 15,
+    color: 'white',
+    price: 45000,
+    release_date: 2015,
+    name: 'Macbook Air White 15"',
+    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    descr:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+  },
+  {
+    size: 15,
+    color: 'gray',
+    price: 55000,
+    release_date: 2016,
+    name: 'Macbook Pro Gray 15"',
+    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    descr:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+  },
+  {
+    size: 15,
+    color: 'black',
+    price: 45000,
+    release_date: 2017,
+    name: 'Macbook Pro Black 15"',
+    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    descr:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+  },
+  {
+    size: 17,
+    color: 'white',
+    price: 65000,
+    release_date: 2015,
+    name: 'Macbook Air White 17"',
+    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    descr:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+  },
+  {
+    size: 17,
+    color: 'gray',
+    price: 75000,
+    release_date: 2016,
+    name: 'Macbook Pro Gray 17"',
+    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    descr:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+  },
+  {
+    size: 17,
+    color: 'black',
+    price: 80000,
+    release_date: 2017,
+    name: 'Macbook Pro Black 17"',
+    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    descr:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+  },
+];
 */
 
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const button = document.querySelector('.js-get');
-  const table = document.querySelector('table');
+  const form = document.querySelector('.js-form');
+  const list = document.querySelector('.js-cards-list');
 
-  button.addEventListener('click', getAllUsers);
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const resetBtn = form.querySelector('button[type="reset"]');
 
-  function getAllUsers() {
+  submitBtn.addEventListener('click', handleSubmitBtnClick);
+  resetBtn.addEventListener('click', handleResetBtnClick);
+
+  showGoods(laptops);
+
+  function showGoods(arrOflaptops) {
+    const source = document.querySelector('#goods-card-tmpl').innerHTML.trim();
+    const template = Handlebars.compile(source);
+
+    const markup = arrOflaptops.reduce((acc, elem) => acc + template(elem), '');
+
+    list.insertAdjacentHTML('afterbegin', markup);
+  }
+
+  function handleSubmitBtnClick(event) {
     event.preventDefault();
 
-    fetch('https://test-users-api.herokuapp.com/users/')
-      .then(response => {
-        if (response.ok) return response.json();
-
-        throw new Error(`Error: ${response.statusText}`);
-      })
-      .then(data => createTable(data.data))
-      .catch(error => console.log(error))
+    applyFilter();
   }
 
-  function createTable(data) {
-    data.forEach(elem => {
-      const tr = document.createElement('tr');
-
-      const itemId = document.createElement('td');
-      itemId.textContent = elem.id;
-      itemId.classList.add('table-item');
-
-      const itemName = document.createElement('td');
-      itemName.textContent = elem.name;
-      itemName.classList.add('table-item');
-
-      const itemAge = document.createElement('td');
-      itemAge.textContent = elem.age;
-      itemAge.classList.add('table-item');
-
-      tr.append(itemId, itemName, itemAge);
-      table.append(tr);
-    })
-  }
-
-  // ===========================================================================
-
-  const input = document.querySelector('.js-search');
-  const searchBtn = document.querySelector('#js-submit');
-  const userText = document.querySelector('#showUserInfo');
-
-  searchBtn.addEventListener('click', getUserById);
-
-  function getUserById() {
+  function applyFilter() {
     event.preventDefault();
 
-    fetch(`https://test-users-api.herokuapp.com/users/${input.value}`)
-      .then(response => {
-        if (response.ok) return response.json();
+    list.innerHTML = '';
 
-        throw new Error(`Error: ${response.statusText}`);
-      })
-      .then(data => {
-        userText.textContent = `Name: ${data.data.name}, age: ${data.data.age}`;
-      })
-      .catch(error => console.log(error))
+    const inputs = [...form.querySelectorAll('input[type="checkbox"]:checked')];
+
+    const filter = getCheckedPoints(inputs);
+
+    const matchedLaptops = filterGoods(filter, laptops);
+
+    showGoods(matchedLaptops);
   }
 
-  // ===========================================================================
+  function getCheckedPoints(arrOfInputs) {
+    let arrOfFilter = arrOfInputs.reduce((acc, elem) => {
+      acc[elem.name].push(elem.value);
+      return acc;
+    }, { size: [], color: [], release_date: [] });
 
-  const userName = document.querySelector('.js-name');
-  const userAge = document.querySelector('.js-age');
-  const submitBtn = document.querySelector('#js-submitNewUser');
-  const textAboutNewUser = document.querySelector("#newUserInfotmation");
-
-  submitBtn.addEventListener('click', addUser);
-
-  function addUser() {
-    event.preventDefault();
-
-    fetch('https://test-users-api.herokuapp.com/users/', {
-      method: 'POST',
-      body: JSON.stringify({ name: userName.value, age: userAge.value }),
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      }
-    })
-      .then(response => {
-        if (response.ok) return response.json();
-
-        throw new Error(`Error: ${response.statusText}`);
-      })
-      .then(data => {
-        textAboutNewUser.textContent = 
-          `Successfully added new user: 
-          name: ${userName.value}, age: ${userAge.value}`;
-      })
-      .catch(error => {
-        console.log("Error: " + error);
-      })
+    return arrOfFilter;
   }
 
-  // ===========================================================================
+  function filterGoods(arrOfFilter, goods) {
+    let arrOfGoods = [];
 
-  const inputForRemove = document.querySelector('.js-remove');
-  const removeBtn = document.querySelector('#js-remove');
-  const textAboutRemoveUser = document.querySelector('#deleted-info');
+    goods.filter(elem => {
+      if (
+        arrOfFilter.size.includes(`${elem.size}`) &&
+        arrOfFilter.color.includes(`${elem.color}`) &&
+        arrOfFilter.release_date.includes(`${elem.release_date}`)
+      )
 
-  removeBtn.addEventListener('click', removeUser)
+        arrOfGoods.push(elem);
+      });
 
-  function removeUser(e) {
-    e.preventDefault();
-    fetch(`https://test-users-api.herokuapp.com/users/${inputForRemove.value}`, {
-      method: 'DELETE',
-    })
-      .then(() => {
-        textAboutRemoveUser.textContent = 
-          `Deleted user by id: ${inputForRemove.value}`;
-      })
-      .catch(error => console.log("Error: " + error))
+      return arrOfGoods;
   }
 
-  // ===========================================================================
+  function handleResetBtnClick(evt) {
+    evt.preventDefault();
 
-  const userId = document.querySelector('#js-resubmit-id');
-  const newUserName = document.querySelector('#js-resubmit-name');
-  const newUserAge = document.querySelector('#js-resubmit-age');
-  const resubmitBtn = document.querySelector('#js-resubmit');
-  const newUserInfo = document.querySelector('#resubmitUserInfo');
-
-  resubmitBtn.addEventListener('click', updateUser);
-
-  function updateUser() {
-    event.preventDefault();
-
-    fetch(`https://test-users-api.herokuapp.com/users/${userId.value}`, {
-      method: 'PUT',
-      body: JSON.stringify({ name: newUserName.value, age: newUserAge.value }),
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      }
-    })
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        newUserInfo.textContent = 
-          `New name:${data.data.name}, new age: ${data.data.age}`;
-      })
-      .catch(error => console.log("Error: " + error))
+    resetFilter();
   }
 
-  // ===========================================================================
+  function resetFilter() {
+      showGoods(laptops);
 
-  const panels = document.querySelector('.js-tabs__nav');
-  const links = document.querySelectorAll('.tabs__link');
-  const tabsPane = document.querySelectorAll('.tabs__pane');
+      const inputs = 
+        [...form.querySelectorAll('input[type="checkbox"]:checked')];
 
-  panels.addEventListener('click', switchPanel);
-
-  function switchPanel({ target }) {
-    event.preventDefault();
-
-    const nodeName = target.nodeName;
-
-    if (nodeName !== 'A') return;
-
-    for (let i = 0, max = links.length; i < max; i += 1) {
-      if (links[i] !== target) {
-        links[i].classList.remove('tabs__link--active');
-        tabsPane[i].classList.remove('tabs__pane--active');
-      } else {
-        links[i].classList.add('tabs__link--active');
-        tabsPane[i].classList.add('tabs__pane--active');
-      }
-    }
+      inputs.forEach(input => input.checked = false);
   }
+
 });
