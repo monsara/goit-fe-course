@@ -207,8 +207,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     goods.filter(elem => {
       if (
-        arrOfFilter.size.includes(`${elem.size}`) &&
-        arrOfFilter.color.includes(`${elem.color}`) &&
+        arrOfFilter.size.includes(`${elem.size}`) ||
+        arrOfFilter.color.includes(`${elem.color}`) ||
         arrOfFilter.release_date.includes(`${elem.release_date}`)
       )
 
