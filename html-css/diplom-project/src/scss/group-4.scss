@@ -1,0 +1,125 @@
+// <!-- Insert You'r code DOWN HERE -->
+.group-4 {
+  position: relative;
+  margin-bottom: 70px;
+
+  &::before {
+    position: absolute;
+    content: "progpamm";
+    @include font-mixin("Acrom-ExBold", 183px, $dark);
+    text-transform: uppercase;
+    transform: rotate(90deg);
+    left: 20%;
+    top: 18%;
+    opacity: 0.051;
+    line-height: 0.7;
+    @include xs('left', -82%);
+    @include xs('top', 10%);
+    @include xs('font-size', 150px);
+    @include sm('left', -36%);
+    @include sm('top', 13%);
+    @include sm('font-size', 177px);
+    @include md('left', 12%);
+    @include md('top', 14%);
+  }
+}
+
+.program {
+  &__title {
+    display: inline-block;
+    @include font-mixin("Acrom-ExBold", 57.5px, $white);
+    margin-bottom: 55px;
+    @include xs('font-size', 35px);
+
+    &--bgc {
+      background-color: $dark;
+      color: $white;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    counter-reset: b;
+    position: relative;
+  }
+
+  &__item {
+    @include size(4);
+    @include size-md(6);
+    @include size-sm(6);
+    @include size-xs(12);
+    padding-left: 72px;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      @include font-mixin("Acrom-ExBold", 37.5px, $dark);
+      position: absolute;
+      counter-increment: b;
+      content: "" counter(b) ".";
+      line-height: 0.75;
+      font-size: 38px;
+      color: #000;
+      top: 0;
+      left: -9px;
+    }
+  }
+}
+
+.program__item:nth-child(-n + 9)::before {
+  content: "0" counter(b) ".";
+}
+
+.header {
+  &--item {
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: $orange;
+    left: -33px;
+    top: 48px;
+  }
+}
+
+.program__item:nth-child(-n + 3) .header--item {
+  min-height: 200px;
+}
+
+.program__item:nth-child(n + 4) .header--item {
+  min-height: 165px;
+}
+
+.program__item:nth-child(n + 7) .header--item {
+  min-height: 160px;
+}
+
+.program__item:nth-child(n + 13) .header--item {
+  min-height: 175px;
+}
+
+.header__title {
+  @include font-mixin("Acrom-ExBold", 12.5px, $dark);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.program__subtitle {
+  display: inline-block;
+  @include font-mixin("Acrom-Regular", 10.5px, $white);
+  background-color: $orange;
+  padding: 5px 3px;
+  margin-bottom: 9px;
+}
+
+.program__text {
+  @include font-mixin("Acrom-regular", 10.5px, $light-grey);
+  margin-bottom: 20px;
+}

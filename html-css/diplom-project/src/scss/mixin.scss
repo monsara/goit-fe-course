@@ -1,0 +1,10 @@
+
+// MIXIN
+
+// Font @include font-mixin( 'Acrom Regular' , 24px,  #fafafafa)
+
+@mixin font-mixin($font-family, $size, $color) {
+  font-family: $font-family;
+  font-size: $size;
+  color: $color;
+}

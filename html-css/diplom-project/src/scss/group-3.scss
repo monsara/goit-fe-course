@@ -1,0 +1,121 @@
+// <!-- start group-3 -->
+.group-3 {
+  margin-bottom: 160px;
+  @include xs('margin-bottom', 80px);
+  @include sm('margin-bottom', 90px);
+
+  &__title {
+    @include font-mixin("Acrom-ExBold", 35.43px, $dark);
+    @include xs('font-size', 25px);
+    line-height: 1.4;
+    max-width: 520px;
+    margin-bottom: 41px;
+    @include xs('margin-bottom', 20px);
+    @include sm('margin-bottom', 25px);
+  }
+
+  &__content {
+    display: flex;
+    @include xs('flex-wrap',wrap);
+    @include sm('flex-wrap',wrap);
+  }
+
+  &__img-box {
+    @include xs('min-width', 100%);
+    @include xs('max-height', 140px);
+    @include xs('margin-bottom', 20px);
+    @include sm('min-width', 100%);
+    @include sm('max-height', 240px);
+    @include sm('margin-bottom', 40px);
+    overflow: hidden;
+    min-width: 273px;
+    max-height: 296px;
+  }
+
+  &__img {
+    @include xs('width', 100%);
+    @include xs('transform', translateY(-20%));
+    @include sm('width', 100%);
+    @include sm('transform', translateY(-20%));
+  }
+}
+
+.slider-g3 {
+  display: flex;
+  align-items: center;
+  margin-left: 14px;
+  width: 100%;
+  @include xs('margin-left', 0);
+  @include sm('margin-left', 0);
+  @include sm('margin', auto);
+
+  &-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 480px;
+    height: 296px;
+    padding: 20px 48px 20px 40px;
+    box-shadow: -3px 3px 10px 0px rgba(0, 0, 0, 0.2);
+    position: relative;
+    @include xs('padding', 20px 25px 20px 40px);
+  }
+
+  &-text {
+    @include font-mixin("Acrom-Regular", 16px, $dark);
+    line-height: 1.4;
+
+    @include xs('font-size', 14px);
+    @include xs('overflow', scroll);
+    @include xs('max-height', 256px);
+
+  }
+
+  &-btn-left {
+    @include xs('display', none);
+    padding: 0;
+    background: url(../img/left-arrow.png) no-repeat 35% 50%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    margin-right: 13px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    &:active {
+      box-shadow: inset 0px 0px 4px rgb(0, 0, 0);
+    }
+  }
+
+  &-btn-right {
+    @include xs('display', none);
+    padding: 0;
+    align-self: auto;
+    background: url(../img/right-arrow.png) no-repeat 65% 50%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    margin-left: 13px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    &:active {
+      box-shadow: inset 0px 0px 4px rgb(0, 0, 0);
+    }
+  }
+}
+
+.numericSlider {
+  position: absolute;
+  left: -4px;
+  top: 50px;
+  width: 48px;
+  height: 16px;
+  background-color: $orange;
+  transform: rotate(270deg);
+  @include font-mixin("Acrom-Bold", 13.3px, $white);
+  text-align: center;
+  line-height: 1;
+}

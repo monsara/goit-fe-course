@@ -1,0 +1,89 @@
+// <!-- Insert You'r code DOWN HERE -->
+
+.group-6 {
+
+  min-width: 100%;
+
+  margin-bottom: 64px;
+
+  &__title {
+    @include font-mixin(Acrom-ExBold, 36.5px, $dark);
+    @include xs('font-size', 25px);
+    margin-bottom: 23px;
+    @include xs('margin-bottom', 20px);
+  }
+
+  &__slider {
+    margin-bottom: 170px;
+    @include xs('margin-bottom', 10px);
+  }
+}
+
+.slider-g6 {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  max-width: 384px;
+
+  &-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 304px;
+    height: 185px;
+    padding: 40px 32px 28px 32px;
+    box-shadow: -3px 3px 10px 0px rgba(0, 0, 0, .2);
+  }
+
+  &-text {
+    @include font-mixin("Acrom-Regular", 16px, $dark);
+    line-height: 1.4;
+    position: relative;
+
+
+    &::before {
+      display: block;
+      content: '';
+      position: absolute;
+      left: 0;
+      top: -20px;
+      width: 8px;
+      height: 8px;
+      background-color: $orange;
+    }
+  }
+
+  &-btn-left {
+    @include xs('display', none);
+    padding: 0;
+    background: url(../img/left-arrow.png) no-repeat  35% 50%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    margin-right: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    &:active {
+      box-shadow: inset 0px 0px 4px rgb(0, 0, 0);
+    }
+  }
+
+  &-btn-right {
+    @include xs('display', none);
+    padding: 0;
+    background: url(../img/right-arrow.png) no-repeat  65% 50%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    margin-left: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    &:active {
+      box-shadow: inset 0px 0px 4px rgb(0, 0, 0);
+    }
+  }
+}

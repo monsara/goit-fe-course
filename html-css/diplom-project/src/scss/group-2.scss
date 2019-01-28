@@ -1,0 +1,59 @@
+.group-2 {
+  display: flex;
+  margin-bottom: 68px;
+  @include xs('margin-bottom', 30px);
+  @include sm('margin-bottom', 20px);
+  @include sm('flex-wrap', wrap);
+}
+
+.info {
+
+  padding-top: 46px;
+  @include xs('padding-top', 0);
+
+  &>p {
+    position: relative;
+    text-align: left;
+    max-height: 170px;
+    @include font-mixin('Acrom-Regular', 16.6px, $dark);
+    line-height: 1.4;
+    margin-top: 30px;
+    padding-left: 75px;
+    max-width: 402px;
+    @include xs('font-size', 14px);
+    @include xs('max-height', 200px);
+
+    &::before {
+      position: absolute;
+      left: 0;
+      top: 4px;
+      content: '';
+      display: inline-block;
+      width: 60px;
+      height: 10px;
+      background-color: rgb(0, 0, 0);
+      @include xs('width', 40px);
+      @include xs('height', 4px);
+    }
+  }
+}
+
+.group-2__title {
+  @include font-mixin('Acrom-ExBold', 37px, $dark);
+  line-height: 1.5;
+  max-width: 290px;
+  @include xs('font-size', 33px);
+  @include xs('max-width', 250px);
+
+  &--background {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    line-height: 1.4;
+  }
+}
+
+.picture {
+  max-width: 50%;
+  @include xs('display', none);
+  @include sm('margin', auto);
+}

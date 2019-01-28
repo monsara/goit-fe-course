@@ -1,0 +1,64 @@
+// <!-- Insert You'r code DOWN HERE -->
+.main-nav {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 70px;
+  @include xs('margin-bottom', 20px);
+}
+
+.main-nav a {
+  text-decoration-line: none;
+  color: $dark;
+}
+
+.contacts {
+  min-width: 230px;
+  display: flex;
+  justify-content: space-between;
+  @include font-mixin("Acrom-Medium", 10.42px, $dark);
+  line-height: 14.58px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  @include xs('font-size', 7px);
+  @include xs('min-width', 160px);
+}
+
+.email, .tel-item a {
+  @include font-mixin("Acrom-Bold", 10px, $dark);
+  @include xs('font-size', 7px);
+
+  & a::before {
+    display: inline-block;
+    vertical-align: middle;
+    content: "";
+    width: 15px;
+    height: 11px;
+    background: url("/img/envelope.svg");
+    background-repeat: no-repeat;
+    margin-right: 5px;
+  }
+}
+
+.tel {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.tel-item a {
+  &::before {
+    display: inline-block;
+    content: "";
+    vertical-align: middle;
+    width: 8px;
+    height: 11px;
+    background: url("/img/phone-receiver.svg");
+    background-repeat: no-repeat;
+    margin-right: 4px;
+  }
+}
